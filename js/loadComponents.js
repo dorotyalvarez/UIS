@@ -7,11 +7,11 @@ function loadComponent(id, file, callback) {
         });
 }
 
-loadComponent("header", "/components/header.html", () => {
+loadComponent("header", "components/header.html", () => {
     const script = document.createElement('script');
-    script.src = '/js/globalSearch.js';
+    script.src = 'js/globalSearch.js';
     document.body.appendChild(script);
 });
 
-loadComponent("emergency", "/components/emergency-bar.html");
-loadComponent("footer", "/components/footer.html");
+loadComponent("emergency", "components/emergency-bar.html");
+loadComponent("footer", "components/footer.html");
