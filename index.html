@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>PrimAux</title>
+    <meta name="description" content="Guía profesional de primeros auxilios — información clara y verificada para emergencias médicas." />
+
+    <!-- 🔴 FAVICON -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png?v=1">
+    <link rel="shortcut icon" href="images/favicon.png?v=1">
+    <link rel="apple-touch-icon" href="images/favicon.png?v=1">
+
+    <!-- 🎨 COLOR EN MÓVILES (barra superior) -->
+    <meta name="theme-color" content="#1e88e5">
+
+    <!-- ⚡ RENDIMIENTO -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+
+    <!-- 🔤 FUENTES -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+    <!-- 🎨 ESTILOS -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/hero.css" />
+    <link rel="stylesheet" href="css/cards.css" />
+    <link rel="stylesheet" href="css/kit.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+</head>
+
+<body>
+
+    <!-- ══════════════════════════════
+       HEADER / HERO
+  ══════════════════════════════ -->
+    <header class="hero" id="inicio">
+        <div class="hero__bg" aria-hidden="true"></div>
+        <div class="hero__cross" aria-hidden="true">✚</div>
+
+        <nav class="nav">
+            <div class="nav__logo">
+                <div class="nav__logo-icon">+</div>
+                <span class="nav__logo-text">
+                Primeros <span>Aux</span>
+                </span>
+            </div>
+            <!-- BUSCADOR -->
+            <div class="nav__search">
+                <input type="text" id="globalSearch" class="nav__search-input" placeholder="🔍 Buscar emergencia..." autocomplete="off" />
+                <div class="nav__search-results" id="globalResults"></div>
+            </div>
+            <div class="nav__links" id="navLinks">
+                <a href="#temas">Temas</a>
+                <a href="#kit">Kit básico</a>
+                <a href="#inicio">Inicio</a>
+            </div>
+
+            <div class="nav__toggle">☰</div>
+        </nav>
+
+        <!-- 🔥 CONTENIDO -->
+        <div class="hero__content">
+            <a href="guia.html" class="hero__badge">
+                <span aria-hidden="true">✚</span> Guía de Primeros Auxilios
+            </a>
+            <h1 class="hero__title">
+                Actúa rápido,<br/><em>salva vidas.</em>
+            </h1>
+
+            <p class="hero__desc">
+                Información clara, confiable y actualizada sobre cómo responder ante emergencias médicas.
+            </p>
+
+            <div class="hero__cta">
+                <a href="#temas" class="btn btn--primary">Ver guías →</a>
+                <a href="#kit" class="btn btn--outline">Kit básico</a>
+            </div>
+        </div>
+
+        <!-- 🔥 VIDEO FUERA del content -->
+        <div class="hero__video-box">
+            <iframe src="https://www.youtube.com/embed/7_tJmMUTI5k?mute=1"></iframe>
+        </div>
+
+        <div class="hero__stats">
+            <div class="stat">
+                <span class="stat__num">8</span>
+                <span class="stat__label">Emergencias cubiertas</span>
+            </div>
+            <div class="stat">
+                <span class="stat__num">100%</span>
+                <span class="stat__label">Información verificada</span>
+            </div>
+            <div class="stat">
+                <span class="stat__num">24/7</span>
+                <span class="stat__label">Disponible siempre</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ══════════════════════════════
+       BARRA DE EMERGENCIA
+  ══════════════════════════════ -->
+    <div class="emergency-bar" role="alert">
+        🚨 En caso de emergencia grave, llama al
+        <a href="tel:123">123</a> (Colombia) o al número de emergencias de tu país antes de actuar.
+    </div>
+
+    <!-- ══════════════════════════════
+       CONTENIDO PRINCIPAL
+  ══════════════════════════════ -->
+    <main id="temas">
+
+        <div class="section-header">
+            <div class="section-tag">Protocolos esenciales</div>
+            <h2>Guías de primeros auxilios</h2>
+            <p class="section-desc">
+                Pasos claros y concisos para las emergencias más comunes. Léelas antes de que las necesites.
+            </p>
+        </div>
+
+        <!-- Grid de tarjetas (generado por JS) -->
+        <div class="topics-grid" id="topicsGrid"></div>
+
+        <!-- ══════════════════════════════
+         KIT BÁSICO
+    ══════════════════════════════ -->
+        <section class="kit-section" id="kit" aria-labelledby="kit-title">
+            <div class="kit__inner">
+
+                <div class="kit__copy">
+                    <div class="section-tag section-tag--gold">Preparación</div>
+                    <h2 class="kit__title" id="kit-title">Kit básico de emergencias</h2>
+                    <p class="kit__desc">
+                        Tener estos elementos en casa puede marcar la diferencia entre una emergencia manejable y una catástrofe. Revísalos cada 6 meses.
+                    </p>
+                    <a href="#temas" class="btn btn--primary">Ver protocolos →</a>
+                    <a href="kit.html" class="btn btn--primary">Ver información →</a>
+                </div>
+
+                <div class="kit__grid" id="kitGrid"></div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ══════════════════════════════
+       FOOTER
+  ══════════════════════════════ -->
+    <footer class="footer">
+        <div class="footer__disclaimer" role="note">
+            ⚠️ <strong>Aviso importante:</strong> Esta guía es informativa y no reemplaza la atención médica profesional ni los cursos certificados de primeros auxilios. Ante cualquier emergencia grave, llama al número de emergencias de tu país.
+        </div>
+        <p>Desarrollado con ❤️ para <strong>estudiantes de medicina y personas que quieren estar preparadas.</strong></p>
+        <p class="footer__copy">PrimAux © 2025 — Guía de Primeros Auxilios</p>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/globalSearch.js"></script>
+    <script>
+        initGlobalSearch();
+    </script>
+
+</body>
+
+</html>

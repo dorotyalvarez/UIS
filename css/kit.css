@@ -1,0 +1,72 @@
+/* ============================================================
+   kit.css — Sección Kit básico de emergencias
+   ============================================================ */
+
+.kit-section {
+  background: var(--color-dark);
+  color: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  margin-top: var(--space-2xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.kit-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 90% 50%, rgba(214, 40, 40, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.kit__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.kit__title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: var(--space-sm);
+  color: var(--color-white);
+}
+
+.kit__desc {
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+/* ── Grid de items ── */
+
+.kit__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.kit__item {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  transition: background var(--transition-fast);
+}
+
+.kit__item:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.kit__item-icon { font-size: 1.2rem; }

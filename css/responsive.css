@@ -1,0 +1,147 @@
+/* ============================================================
+   responsive.css — Optimizado y sin duplicados
+   ============================================================ */
+
+
+/* ── Tablets ── */
+
+@media (max-width: 1024px) {
+    .topics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .kit__inner {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    .kit__title {
+        font-size: 2rem;
+    }
+}
+
+
+/* ── Móvil ── */
+
+@media (max-width: 768px) {
+     :root {
+        --padding-x: 5%;
+    }
+    /* ── NAV ── */
+    .nav__toggle {
+        display: block;
+    }
+    .nav__links {
+        position: absolute;
+        top: 70px;
+        right: 16px;
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 12px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+    }
+    .nav__links.active {
+        display: flex;
+    }
+    /* ── HERO ── */
+    .hero {
+        flex-direction: column;
+    }
+    .hero__content {
+        order: 1;
+        padding: 100px var(--padding-x) 24px;
+        max-width: 100%;
+        text-align: center;
+    }
+    .hero__stats {
+        flex-wrap: wrap;
+        gap: var(--space-md);
+    }
+    .hero__cta {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .hero__video-box {
+        order: 2;
+        position: relative;
+        width: 90%;
+        height: 200px;
+        margin: 0 auto 24px;
+        transform: none;
+    }
+    .hero__video-box iframe {
+        width: 100%;
+        height: 100%;
+    }
+    .hero__title {
+        font-size: 2.8rem;
+    }
+    /* ── MAIN ── */
+    main {
+        padding: 50px var(--padding-x);
+    }
+    /* ── GRID ── */
+    .topics-grid {
+        grid-template-columns: 1fr;
+    }
+    /* ── KIT ── */
+    .kit-section {
+        padding: 36px 24px;
+    }
+    .kit__inner {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+    .kit__title {
+        font-size: 1.8rem;
+    }
+    .kit__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    /* ── BOTONES ── */
+    .btn {
+        width: auto;
+        padding: 12px 20px;
+    }
+    /* ── FOOTER ── */
+    .footer__container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+
+/* ── Móvil pequeño ── */
+
+@media (max-width: 480px) {
+    .hero__title {
+        font-size: 2.4rem;
+    }
+    .hero__cta {
+        flex-direction: column;
+    }
+    .kit__grid {
+        grid-template-columns: 1fr;
+    }
+    .card__header {
+        flex-wrap: wrap;
+    }
+}
+
+
+/* ── Accesibilidad ── */
+
+@media (prefers-reduced-motion: reduce) {
+    .card {
+        animation: none;
+    }
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
+}

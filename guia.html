@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guía de Primeros Auxilios — PrimAux</title>
+    <!-- 🔴 FAVICON -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png?v=1">
+    <link rel="shortcut icon" href="images/favicon.png?v=1">
+    <link rel="apple-touch-icon" href="images/favicon.png?v=1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/page-hero.css" />
+    <style>
+        /* ══════════════════════════════════════════
+       VARIABLES
+    ══════════════════════════════════════════ */
+        
+         :root {
+            --blue: #1A8FE3;
+            --blue-dark: #1270B8;
+            --blue-light: #E8F4FD;
+            --green: #2DBD8F;
+            --green-light: #E6F9F3;
+            --orange: #F4A235;
+            --orange-light: #FEF3E2;
+            --red: #E8503A;
+            --red-light: #FEF0EE;
+            --purple: #7C5CBF;
+            --purple-light: #F0EBFF;
+            --dark: #1B2A3B;
+            --mid: #5A7184;
+            --light: #F0F7FF;
+            --white: #FFFFFF;
+            --border: #D0E8F7;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'DM Sans', sans-serif;
+            --radius: 20px;
+            --shadow: 0 6px 28px rgba(26, 143, 227, .12);
+            --shadow-lg: 0 16px 48px rgba(26, 143, 227, .18);
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        /* ══════════════════════════════════════════
+       NAV
+    ══════════════════════════════════════════ */
+        
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--white);
+            border-bottom: 2px solid var(--border);
+            padding: 16px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 12px rgba(26, 143, 227, .08);
+        }
+        
+        .nav__logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark);
+            text-decoration: none;
+        }
+        
+        .nav__logo-icon {
+            width: 38px;
+            height: 38px;
+            background: var(--blue);
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 900;
+        }
+        
+        .nav__links {
+            display: flex;
+            gap: 6px;
+            list-style: none;
+        }
+        
+        .nav__links a {
+            color: var(--mid);
+            font-size: .85rem;
+            font-weight: 500;
+            padding: 7px 16px;
+            border-radius: 100px;
+            text-decoration: none;
+            transition: background .2s, color .2s;
+        }
+        
+        .nav__links a:hover {
+            background: var(--blue-light);
+            color: var(--blue);
+        }
+        /* ══════════════════════════════════════════
+       HERO DE LA PÁGINA
+    ══════════════════════════════════════════ */
+        
+        .page-hero {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+            color: white;
+            padding: 72px 6% 80px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 80% at 80% 50%, rgba(45, 189, 143, .2) 0%, transparent 60%);
+        }
+        
+        .page-hero__tag {
+            display: inline-block;
+            background: var(--green);
+            color: white;
+            font-size: .75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            padding: 6px 18px;
+            border-radius: 100px;
+            margin-bottom: 20px;
+        }
+        
+        .page-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 18px;
+            position: relative;
+        }
+        
+        .page-hero p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, .82);
+            max-width: 560px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+            position: relative;
+        }
+        /* Índice de contenidos */
+        
+        .toc {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .toc__item {
+            background: rgba(255, 255, 255, .15);
+            border: 1px solid rgba(255, 255, 255, .25);
+            color: white;
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: .85rem;
+            font-weight: 500;
+            transition: background .2s;
+            backdrop-filter: blur(6px);
+        }
+        
+        .toc__item:hover {
+            background: rgba(255, 255, 255, .28);
+        }
+        /* ── Burbujas animadas ── */
+        
+        .page-hero::before,
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        .page-hero::before {
+            width: 420px;
+            height: 420px;
+            background: rgba(45, 189, 143, 0.2);
+            top: -120px;
+            right: -80px;
+            animation: bubbleFloat 7s ease-in-out infinite;
+        }
+        
+        .page-hero::after {
+            width: 280px;
+            height: 280px;
+            background: rgba(255, 184, 48, 0.15);
+            bottom: -80px;
+            left: -60px;
+            animation: bubbleFloat 9s ease-in-out infinite reverse;
+        }
+        
+        @keyframes bubbleFloat {
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-20px) scale(1.05);
+            }
+        }
+        
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            animation: bubbleFloat 7s ease-in-out infinite;
+            pointer-events: none;
+        }
+        /* ══════════════════════════════════════════
+       BARRA EMERGENCIA
+    ══════════════════════════════════════════ */
+        
+        .emergency-bar {
+            background: linear-gradient(90deg, #1270B8 0%, #1A8FE3 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 14px 6%;
+            font-size: .9rem;
+            letter-spacing: .3px;
+        }
+        
+        .emergency-bar__icon {
+            font-size: 1.1rem;
+            animation: shake 2.5s ease-in-out infinite;
+        }
+        
+        .emergency-bar__text {
+            font-weight: 500;
+        }
+        
+        .emergency-bar__text strong {
+            color: #ff6b6b;
+            margin-right: 4px;
+        }
+        
+        .emergency-bar__text a {
+            color: #FFB830;
+            font-weight: 800;
+            font-size: 1.05rem;
+            text-decoration: none;
+            border-bottom: 1.5px solid rgba(255, 184, 48, .4);
+            transition: border-color .2s;
+        }
+        
+        .emergency-bar__text a:hover {
+            border-color: #FFB830;
+        }
+        /* Punto pulsante */
+        
+        .emergency-bar__pulse {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ff6b6b;
+            box-shadow: 0 0 0 0 rgba(255, 107, 107, .6);
+            animation: pulse 1.8s ease-out infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 107, .6);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 107, 107, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 107, 0);
+            }
+        }
+        
+        @keyframes shake {
+            0%,
+            90%,
+            100% {
+                transform: rotate(0deg);
+            }
+            92% {
+                transform: rotate(-10deg);
+            }
+            96% {
+                transform: rotate(10deg);
+            }
+        }
+        /* ══════════════════════════════════════════
+       CONTENIDO PRINCIPAL
+    ══════════════════════════════════════════ */
+        
+        .guide {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 64px 5% 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 56px;
+        }
+        /* ══════════════════════════════════════════
+       SECCIONES
+    ══════════════════════════════════════════ */
+        
+        .section {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1.5px solid var(--border);
+            animation: fadeUp .5s ease both;
+        }
+        
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section:nth-child(1) {
+            animation-delay: .05s;
+        }
+        
+        .section:nth-child(2) {
+            animation-delay: .10s;
+        }
+        
+        .section:nth-child(3) {
+            animation-delay: .15s;
+        }
+        
+        .section:nth-child(4) {
+            animation-delay: .20s;
+        }
+        
+        .section:nth-child(5) {
+            animation-delay: .25s;
+        }
+        
+        .section:nth-child(6) {
+            animation-delay: .30s;
+        }
+        
+        .section:nth-child(7) {
+            animation-delay: .35s;
+        }
+        /* Header de sección con color */
+        
+        .section__header {
+            padding: 28px 32px 22px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border-bottom: 1.5px solid var(--border);
+        }
+        
+        .section__icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+        
+        .section__title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .section__subtitle {
+            font-size: .85rem;
+            color: var(--mid);
+            margin-top: 3px;
+        }
+        
+        .section__body {
+            padding: 28px 32px 32px;
+        }
+        
+        .section__intro {
+            font-size: 1rem;
+            color: var(--mid);
+            line-height: 1.75;
+            margin-bottom: 24px;
+        }
+        /* ══════════════════════════════════════════
+       ESCALA AVDI
+    ══════════════════════════════════════════ */
+        
+        .avdi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        
+        .avdi-item {
+            border-radius: 14px;
+            padding: 18px 20px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+        
+        .avdi-letter {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+        
+        .avdi-content strong {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+        
+        .avdi-content p {
+            font-size: .88rem;
+            line-height: 1.5;
+            color: var(--mid);
+        }
+        /* ══════════════════════════════════════════
+       PASOS CON NÚMERO
+    ══════════════════════════════════════════ */
+        
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        
+        .step {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        
+        .step__num {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .85rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .step__text {
+            padding: 10px 16px;
+            border-radius: 12px;
+            flex: 1;
+            font-size: .95rem;
+            line-height: 1.6;
+        }
+        
+        .step__text strong {
+            display: block;
+            margin-bottom: 2px;
+        }
+        /* ══════════════════════════════════════════
+       DECISIÓN (SI / NO)
+    ══════════════════════════════════════════ */
+        
+        .decision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 8px;
+        }
+        
+        .decision__card {
+            border-radius: 16px;
+            padding: 20px;
+            border: 2px solid transparent;
+        }
+        
+        .decision__label {
+            font-size: .75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        .decision__title {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .decision__text {
+            font-size: .88rem;
+            line-height: 1.6;
+            color: var(--mid);
+        }
+        /* ══════════════════════════════════════════
+       POSICIÓN LATERAL — pasos visuales
+    ══════════════════════════════════════════ */
+        
+        .pos-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+        
+        .pos-step {
+            background: var(--blue-light);
+            border-radius: 14px;
+            padding: 16px;
+            text-align: center;
+        }
+        
+        .pos-step__num {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--blue);
+            color: white;
+            font-size: .8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+        }
+        
+        .pos-step p {
+            font-size: .83rem;
+            line-height: 1.5;
+            color: var(--dark);
+        }
+        /* ══════════════════════════════════════════
+       ALERTA / ADVERTENCIA
+    ══════════════════════════════════════════ */
+        
+        .alert {
+            border-radius: 14px;
+            padding: 18px 22px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            margin-top: 24px;
+        }
+        
+        .alert__icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        
+        .alert__text {
+            font-size: .9rem;
+            line-height: 1.6;
+        }
+        
+        .alert__text strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: .95rem;
+        }
+        
+        .alert--red {
+            background: var(--red-light);
+            border-left: 4px solid var(--red);
+        }
+        
+        .alert--orange {
+            background: var(--orange-light);
+            border-left: 4px solid var(--orange);
+        }
+        
+        .alert--green {
+            background: var(--green-light);
+            border-left: 4px solid var(--green);
+        }
+        
+        .alert--blue {
+            background: var(--blue-light);
+            border-left: 4px solid var(--blue);
+        }
+        /* ══════════════════════════════════════════
+       MASCARAS / KIT
+    ══════════════════════════════════════════ */
+        
+        .kit-row {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+        
+        .kit-pill {
+            background: var(--blue-light);
+            border: 1.5px solid var(--border);
+            border-radius: 100px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: .9rem;
+            font-weight: 500;
+        }
+        /* ══════════════════════════════════════════
+       COLORES POR SECCIÓN (header)
+    ══════════════════════════════════════════ */
+        
+        .sec--blue .section__header {
+            background: var(--blue-light);
+        }
+        
+        .sec--green .section__header {
+            background: var(--green-light);
+        }
+        
+        .sec--orange .section__header {
+            background: var(--orange-light);
+        }
+        
+        .sec--red .section__header {
+            background: var(--red-light);
+        }
+        
+        .sec--purple .section__header {
+            background: var(--purple-light);
+        }
+        /* ══════════════════════════════════════════
+       IMAGEN DE SECCIÓN
+    ══════════════════════════════════════════ */
+        
+        .section__img-wrap {
+            overflow: hidden;
+            border-bottom: 1.5px solid var(--border);
+        }
+        
+        .section__img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform .6s ease;
+        }
+        
+        .section:hover .section__img {
+            transform: scale(1.03);
+        }
+        /* ══════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════ */
+        
+        .footer {
+            text-align: center;
+            padding: 40px 6%;
+            border-top: 1px solid var(--border);
+            color: var(--mid);
+            font-size: .85rem;
+        }
+        
+        .footer__disclaimer {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-radius: 12px;
+            padding: 14px 20px;
+            font-size: .82rem;
+            color: #92400e;
+            max-width: 680px;
+            margin: 0 auto 20px;
+            line-height: 1.6;
+        }
+        
+        .footer a {
+            color: var(--blue);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+        
+        @media (max-width: 640px) {
+            .avdi-grid {
+                grid-template-columns: 1fr;
+            }
+            .decision {
+                grid-template-columns: 1fr;
+            }
+            .pos-steps {
+                grid-template-columns: 1fr 1fr;
+            }
+            .section__header {
+                padding: 20px;
+            }
+            .section__body {
+                padding: 20px;
+            }
+            .guide {
+                padding: 36px 4% 60px;
+            }
+            .nav__links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ══════════ NAV ══════════ -->
+    <nav class="nav">
+        <a href="index.html" class="nav__logo">
+            <div class="nav__logo-icon">✚</div>
+            PrimAux
+        </a>
+        <ul class="nav__links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html#temas">Temas</a></li>
+            <li><a href="index.html#kit">Kit básico</a></li>
+        </ul>
+    </nav>
+
+    <!-- ══════════ HERO ══════════ -->
+    <div class="page-hero">
+        <span class="bubble" style="width:180px;height:180px;top:10%;left:15%;animation-duration:6s;"></span>
+        <span class="bubble" style="width:100px;height:100px;top:60%;right:20%;animation-duration:8s;animation-delay:1s;"></span>
+        <span class="bubble" style="width:60px;height:60px;top:30%;right:35%;animation-duration:5s;animation-delay:2s;"></span>
+        <div class="page-hero__tag">✚ Guía completa</div>
+        <h1>Guía de Primeros Auxilios</h1>
+        <p>Todo lo que necesitas saber para actuar con calma y seguridad ante una emergencia médica. Paso a paso, claro y directo.</p>
+        <div class="toc">
+            <a href="#s1" class="toc__item">¿Qué son?</a>
+            <a href="#s2" class="toc__item">Valoración AVDI</a>
+            <a href="#s3" class="toc__item">Inconsciente</a>
+            <a href="#s4" class="toc__item">Posición lateral</a>
+            <a href="#s5" class="toc__item">Sin pulso</a>
+            <a href="#s6" class="toc__item">Frente-Mentón</a>
+            <a href="#s7" class="toc__item">¿Qué sigue?</a>
+        </div>
+    </div>
+
+    <!-- ══════════ EMERGENCIA ══════════ -->
+    <div class="emergency-bar" role="alert">
+        <span class="emergency-bar__icon">🚨</span>
+        <span class="emergency-bar__text">
+    <strong>Emergencia:</strong> Llama al 
+    <a href="tel:123">123</a> 
+    antes de actuar — Colombia
+  </span>
+        <span class="emergency-bar__pulse"></span>
+    </div>
+
+    <!-- ══════════ GUÍA ══════════ -->
+    <div class="guide">
+
+        <!-- SECCIÓN 1 — Qué son los primeros auxilios -->
+        <div class="section sec--blue" id="s1">
+            <div class="section__header">
+                <div class="section__icon" style="background:#DBEEFF;">🩺</div>
+                <div>
+                    <div class="section__title">¿Qué son los primeros auxilios?</div>
+                    <div class="section__subtitle">Conceptos básicos antes de actuar</div>
+                </div>
+            </div>
+            <div class="section__img-wrap">
+                <img class="section__img" src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=900&q=80" alt="Personas aprendiendo primeros auxilios" />
+            </div>
+            <div class="section__body">
+                <p class="section__intro">
+                    Los primeros auxilios son las acciones inmediatas que cualquier persona puede hacer para ayudar a alguien que ha sufrido un accidente o emergencia médica, <strong>mientras llega la ayuda profesional</strong>.
+                </p>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step__num" style="background:#DBEEFF;color:#1A8FE3;">1</div>
+                        <div class="step__text" style="background:#F0F7FF;">
+                            <strong>Protégete primero</strong> Asegúrate de que el entorno sea seguro para ti antes de acercarte al herido.
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step__num" style="background:#DBEEFF;color:#1A8FE3;">2</div>
+                        <div class="step__text" style="background:#F0F7FF;">
+                            <strong>Llama a emergencias</strong> Marca el 123 (Colombia) o el número local. No esperes a ver si empeora.
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step__num" style="background:#DBEEFF;color:#1A8FE3;">3</div>
+                        <div class="step__text" style="background:#F0F7FF;">
+                            <strong>Actúa con calma</strong> Respira hondo. Una persona tranquila ayuda mejor que una desesperada.
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step__num" style="background:#DBEEFF;color:#1A8FE3;">4</div>
+                        <div class="step__text" style="background:#F0F7FF;">
+                            <strong>Socorre al herido</strong> Con los conocimientos básicos puedes marcar la diferencia entre la vida y la muerte.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 2 — Valoración primaria AVDI -->
+        <div class="section sec--green" id="s2">
+            <div class="section__header">
+                <div class="section__icon" style="background:#C8F2E4;">🧠</div>
+                <div>
+                    <div class="section__title">Valoración Primaria — Escala AVDI</div>
+                    <div class="section__subtitle">¿Cómo está el nivel de consciencia?</div>
+                </div>
+            </div>
+            <div class="section__img-wrap">
+                <img class="section__img" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&q=80" alt="Médico evaluando paciente inconsciente" style="object-position:center 30%;" />
+            </div>
+            <div class="section__body">
+                <p class="section__intro">
+                    Antes de cualquier acción, evalúa el nivel de consciencia del herido usando la escala <strong>AVDI</strong>. Esto toma menos de 30 segundos.
+                </p>
+                <div class="avdi-grid">
+                    <div class="avdi-item" style="background:#E6F9F3;">
+                        <div class="avdi-letter" style="background:#2DBD8F;color:white;">A</div>
+                        <div class="avdi-content">
+                            <strong style="color:#2DBD8F;">Alerta</strong>
+                            <p>El herido te mira, te responde y se mueve al llamarlo. Está consciente.</p>
+                        </div>
+                    </div>
+                    <div class="avdi-item" style="background:#E8F4FD;">
+                        <div class="avdi-letter" style="background:#1A8FE3;color:white;">V</div>
+                        <div class="avdi-content">
+                            <strong style="color:#1A8FE3;">Voz</strong>
+                            <p>Se queja, balbusea o intenta hablarte al llamarlo. Reacciona al sonido.</p>
+                        </div>
+                    </div>
+                    <div class="avdi-item" style="background:#FEF3E2;">
+                        <div class="avdi-letter" style="background:#F4A235;color:white;">D</div>
+                        <div class="avdi-content">
+                            <strong style="color:#F4A235;">Dolor</strong>
+                            <p>No responde al llamado. Presiona con tu uña la uña del dedo meñique del herido.</p>
+                        </div>
+                    </div>
+                    <div class="avdi-item" style="background:#FEF0EE;">
+                        <div class="avdi-letter" style="background:#E8503A;color:white;">I</div>
+                        <div class="avdi-content">
+                            <strong style="color:#E8503A;">Inconsciente</strong>
+                            <p>El paciente no responde al llamado ni al dolor. Actúa de inmediato.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 3 — Si está inconsciente -->
+        <div class="section sec--orange" id="s3">
+            <div class="section__header">
+                <div class="section__icon" style="background:#FEE9C4;">😵</div>
+                <div>
+                    <div class="section__title">Si está inconsciente…</div>
+                    <div class="section__subtitle">Verifica la respiración en 10 segundos</div>
+                </div>
+            </div>
+            <div class="section__img-wrap">
+                <img class="section__img" src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=900&q=80" alt="Verificando respiración de paciente" style="object-position:center 40%;" />
+            </div>
+            <div class="section__body">
+                <p class="section__intro">
+                    Tranquilo, mantén la calma, inhala profundo y verifica si el herido está respirando. Observa detenidamente por <strong>10 segundos</strong>.
+                </p>
+                <div class="decision">
+                    <div class="decision__card" style="background:#E6F9F3; border-color:#2DBD8F;">
+                        <div class="decision__label" style="color:#2DBD8F;">↑ INHALA</div>
+                        <div class="decision__title" style="color:#1B2A3B;">El pecho se eleva</div>
+                        <div class="decision__text">El pecho sube y el abdomen se eleva. Hay movimiento visible de respiración.</div>
+                    </div>
+                    <div class="decision__card" style="background:#FEF0EE; border-color:#E8503A;">
+                        <div class="decision__label" style="color:#E8503A;">↓ EXHALA</div>
+                        <div class="decision__title" style="color:#1B2A3B;">El pecho desciende</div>
+                        <div class="decision__text">El pecho baja y el abdomen se hunde. Observa ambos movimientos para confirmar.</div>
+                    </div>
+                </div>
+                <div class="alert alert--orange">
+                    <div class="alert__icon">⚠️</div>
+                    <div class="alert__text">
+                        <strong>Si no ves ningún movimiento en 10 segundos</strong> El paciente no está respirando. Pasa a la siguiente sección inmediatamente.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 4 — Posición lateral de seguridad -->
+        <div class="section sec--blue" id="s4">
+            <div class="section__header">
+                <div class="section__icon" style="background:#DBEEFF;">🔄</div>
+                <div>
+                    <div class="section__title">Posición Lateral de Seguridad</div>
+                    <div class="section__subtitle">Si está inconsciente pero respira</div>
+                </div>
+            </div>
+            <div class="section__img-wrap">
+                <img class="section__img" src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=900&q=80" alt="Posición lateral de seguridad" style="object-position:center 35%;" />
+            </div>
+            <div class="section__body">
+                <p class="section__intro">
+                    Si el herido está inconsciente pero <strong>sí respira</strong>, colócalo en Posición Lateral de Seguridad mientras llega la ayuda. Esto evita que se ahogue.
+                </p>
+                <div class="pos-steps">
+                    <div class="pos-step">
+                        <div class="pos-step__num">1</div>
+                        <p>Estira el brazo más cercano a ti hacia afuera</p>
+                    </div>
+                    <div class="pos-step">
+                        <div class="pos-step__num">2</div>
+                        <p>Cruza el otro brazo por encima del tórax</p>
+                    </div>
+                    <div class="pos-step">
+                        <div class="pos-step__num">3</div>
+                        <p>Dobla la rodilla más lejana hacia arriba</p>
+                    </div>
+                    <div class="pos-step">
+                        <div class="pos-step__num">4</div>
+                        <p>Gira a la persona hacia ti usando la rodilla</p>
+                    </div>
+                    <div class="pos-step">
+                        <div class="pos-step__num">5</div>
+                        <p>Inclina la cabeza ligeramente hacia atrás</p>
+                    </div>
+                    <div class="pos-step">
+                        <div class="pos-step__num">6</div>
+                        <p>✅ Posición final — vía aérea abierta</p>
+                    </div>
+                </div>
+                <div class="alert alert--blue" style="margin-top:20px;">
+                    <div class="alert__icon">ℹ️</div>
+                    <div class="alert__text">
+                        <strong>Importante</strong> Mantén vigilado a la persona y no la dejes sola hasta que llegue la ayuda médica.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 5 — Si no respira / buscar pulso -->
+        <div class="section sec--red" id="s5">
+            <div class="section__header">
+                <div class="section__icon" style="background:#FCD9D3;">❤️</div>
+                <div>
+                    <div class="section__title">Si no respira — Busca el pulso</div>
+                    <div class="section__subtitle">Manzana de Adán — 10 segundos</div>
+                </div>
+            </div>
+            <div class="section__img-wrap">
+                <img class="section__img" src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=900&q=80" alt="Tomando el pulso en la garganta" style="object-position:center 25%;" />
+            </div>
+            <div class="section__body">
+                <p class="section__intro">
+                    Con la mano que escribes, extiende el <strong>índice y medio</strong>, mantén el pulgar en el aire y cierra el meñique y el anular (mano en forma de pistola).
+                </p>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step__num" style="background:#FCD9D3;color:#E8503A;">1</div>
+                        <div class="step__text" style="background:#FEF0EE;">
+                            <strong>Forma la mano correcta</strong> Índice y medio extendidos. Pulgar arriba. Meñique y anular cerrados.
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step__num" style="background:#FCD9D3;color:#E8503A;">2</div>
+                        <div class="step__text" style="background:#FEF0EE;">
+                            <strong>Presiona a un lado de la manzana de Adán</strong> Coloca tus dedos a un lado (izquierdo o derecho) de la garganta — nunca encima.
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step__num" style="background:#FCD9D3;color:#E8503A;">3</div>
+                        <div class="step__text" style="background:#FEF0EE;">
+                            <strong>Espera 10 segundos</strong> Busca sentir las palpitaciones. Cuenta mentalmente.
+                        </div>
+                    </div>
+                </div>
+                <div class="decision" style="margin-top:20px;">
+                    <div class="decision__card" style="background:#E6F9F3; border-color:#2DBD8F;">
+                        <div class="decision__label" style="color:#2DBD8F;">✅ SIENTE PULSO</div>
+                        <div class="decision__title" style="color:#1B2A3B;">El corazón late</div>
+                        <div class="decision__text">El cerebro recibe sangre pero el herido no respira. Ve a la sección siguiente: Maniobra Frente-Mentón.</div>
+                    </div>
+                    <div class="decision__card" style="background:#FEF0EE; border-color:#E8503A;">
+                        <div class="decision__label" style="color:#E8503A;">❌ NO SIENTE PULSO</div>
+                        <div class="decision__title" style="color:#1B2A3B;">Paro cardíaco</div>
+                        <div class="decision__text">Inicia RCP inmediatamente: 30 compresiones en el pecho + 2 respiraciones. Repite hasta que llegue ayuda.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 6 — Maniobra Frente-Mentón -->
+        <div class="section sec--purple" id="s6">
+            <div class="section__header">
+                <div class="section__icon" style="background:#EDE5FF;">🫁</div>
+                <div>
+                    <div class="section__title">Maniobra Frente-Mentón</div>
+                    <div class="section__subtitle">Siente pulso pero no respira</div>
+                </div>
+            </div>
+            <div class="section__img-wrap">
+                <img class="section__img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&q=80" alt="Maniobra frente mentón vía aérea" style="object-position:center 30%;" />
+            </div>
+            <div class="section__body">
+                <p class="section__intro">
+                    El corazón late pero la vía aérea está bloqueada. Despeja la nariz y la boca con esta maniobra.
+                </p>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step__num" style="background:#EDE5FF;color:#7C5CBF;">1</div>
+                        <div class="step__text" style="background:#F5F0FF;">
+                            <strong>Mano en la frente</strong> Con la mano que escribes, toma la frente del herido con firmeza.
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step__num" style="background:#EDE5FF;color:#7C5CBF;">2</div>
+                        <div class="step__text" style="background:#F5F0FF;">
+                            <strong>Extiende la cabeza hacia atrás</strong> Inclina suavemente la cabeza hacia atrás para abrir la vía aérea.
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step__num" style="background:#EDE5FF;color:#7C5CBF;">3</div>
+                        <div class="step__text" style="background:#F5F0FF;">
+                            <strong>Eleva la barbilla</strong> Con la otra mano, levanta la barbilla hacia arriba. Mira si al hacerlo respira.
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step__num" style="background:#EDE5FF;color:#7C5CBF;">4</div>
+                        <div class="step__text" style="background:#F5F0FF;">
+                            <strong>Observa el resultado</strong> ¿El pecho se mueve? ¿Sientes aire en tu mejilla? Si sí, la maniobra funcionó.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 7 — Qué sigue -->
+        <div class="section sec--green" id="s7">
+            <div class="section__header">
+                <div class="section__icon" style="background:#C8F2E4;">✅</div>
+                <div>
+                    <div class="section__title">¿Qué sigue?</div>
+                    <div class="section__subtitle">Según el resultado de la maniobra</div>
+                </div>
+            </div>
+            <div class="section__img-wrap">
+                <img class="section__img" src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=900&q=80" alt="Paramédicos llegando a la emergencia" style="object-position:center 40%;" />
+            </div>
+            <div class="section__body">
+                <div class="decision">
+                    <div class="decision__title" style="color:#1B2A3B;">La maniobra funcionó</div>
+                    <div class="decision__text">Colócalo en Posición Lateral de Seguridad con la cabeza extendida hacia atrás. Mantén la vía aérea abierta mientras llega la ayuda.</div>
+                </div>
+                <div class="decision__card" style="background:#FEF0EE; border-color:#E8503A;">
+                    <div class="decision__label" style="color:#E8503A;">❌ NO FUNCIONA</div>
+                    <div class="decision__title" style="color:#1B2A3B;">Necesitas equipo</div>
+                    <div class="decision__text">Mantén vigilado el pulso y asegúrate de que la ayuda viene en camino. Busca en el botiquín máscaras de ventilación.</div>
+                </div>
+            </div>
+            <p style="font-size:.9rem;color:var(--mid);margin-top:20px;font-weight:600;">
+                🎒 Elementos útiles del botiquín:
+            </p>
+            <div class="kit-row">
+                <div class="kit-pill">😷 Máscara de ventilación (boca a boca)</div>
+                <div class="kit-pill">🫁 Mascarilla de reanimación</div>
+                <div class="kit-pill">🧤 Guantes de látex</div>
+                <div class="kit-pill">📋 Hoja de registro de signos vitales</div>
+            </div>
+            <div class="alert alert--red" style="margin-top:20px;">
+                <div class="alert__icon">🚨</div>
+                <div class="alert__text">
+                    <strong>Recuerda siempre</strong> Ninguna acción reemplaza la atención médica profesional. Llama al 123 desde el primer momento y no abandones al herido.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <!-- /guide -->
+
+    <!-- ══════════ FOOTER ══════════ -->
+    <footer class="footer">
+        <div class="footer__disclaimer">
+            ⚠️ <strong>Aviso:</strong> Esta guía es informativa y no reemplaza los cursos certificados de primeros auxilios. Para emergencias llama al <strong>123</strong>.
+        </div>
+        <p>Desarrollado con ❤️ para <strong>estudiantes de medicina y personas preparadas.</strong></p>
+        <p style="margin-top:8px;opacity:.5;font-size:.8rem;">PrimAux © 2025 · <a href="index.html">Volver al inicio</a></p>
+    </footer>
+
+</body>
+
+</html>

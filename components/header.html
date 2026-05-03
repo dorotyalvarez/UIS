@@ -1,0 +1,103 @@
+<style>
+    .nav__search-input {
+        background: #E8F4FD;
+        border: 1.5px solid #D0E8F7;
+        border-radius: 100px;
+        padding: 8px 18px;
+        color: #1B2A3B;
+        font-size: .85rem;
+        width: 220px;
+        outline: none;
+        transition: all .2s;
+        font-family: 'DM Sans', sans-serif;
+    }
+    
+    .nav__search-input::placeholder {
+        color: #5A7184;
+    }
+    
+    .nav__search-input:focus {
+        width: 280px;
+        background: white;
+        border-color: #1A8FE3;
+        box-shadow: 0 0 0 3px rgba(26, 143, 227, .15);
+    }
+    
+    .nav__search {
+        position: relative;
+    }
+    
+    .nav__search-results {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        width: 320px;
+        background: white;
+        border-radius: 14px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, .15);
+        overflow: hidden;
+        display: none;
+        z-index: 999;
+    }
+    
+    .nav__search-results.visible {
+        display: block;
+    }
+    
+    .nav__search-result-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        font-size: .88rem;
+        color: #1B2A3B;
+        cursor: pointer;
+        transition: background .15s;
+        text-decoration: none;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .nav__search-result-item:last-child {
+        border-bottom: none;
+    }
+    
+    .nav__search-result-item:hover {
+        background: #E8F4FD;
+    }
+    
+    .nav__search-result-item span:first-child {
+        font-size: 1.2rem;
+    }
+    
+    .nav__search-result-item strong {
+        display: block;
+        font-size: .88rem;
+    }
+    
+    .nav__search-result-item small {
+        color: #5A7184;
+        font-size: .78rem;
+    }
+</style>
+
+<header class="site-header">
+    <nav class="nav">
+        <div class="nav__logo">
+            <div class="nav__logo-icon">+</div>
+            <span class="nav__logo-text">
+                Primeros <span>Aux</span>
+            </span>
+        </div>
+        <!-- BUSCADOR -->
+        <div class="nav__search">
+            <input type="text" id="globalSearch" class="nav__search-input" placeholder="🔍 Buscar emergencia..." autocomplete="off" />
+            <div class="nav__search-results" id="globalResults"></div>
+        </div>
+        <div class="nav__links">
+            <a href="/index.html#temas">Temas</a>
+            <a href="/index.html#kit">Kit básico</a>
+            <a href="/index.html">Inicio</a>
+        </div>
+        <div class="nav__toggle">☰</div>
+    </nav>
+</header>

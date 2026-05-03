@@ -1,0 +1,117 @@
+/* ============================================================
+   components.css — Componentes reutilizables menores
+   ============================================================ */
+
+
+/* ── Grid de temas ── */
+
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+}
+
+
+/* ── Animación de entrada de tarjetas ── */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.footer {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.footer__socials {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+
+/* iconos */
+
+.footer__socials a {
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    transition: 0.25s ease;
+}
+
+
+/* hover elegante */
+
+.footer__socials a:hover {
+    transform: translateY(-3px);
+    color: #38bdf8;
+}
+
+
+/* ══════════════════════════════
+   BUSCADOR DEL INDEX
+══════════════════════════════ */
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.search-bar__input {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 100px;
+    border: 2px solid #D0E8F7;
+    background: #F0F7FF;
+    color: #1B2A3B;
+    font-size: .9rem;
+    outline: none;
+    font-family: 'DM Sans', sans-serif;
+    transition: all .2s;
+}
+
+.search-bar__input::placeholder {
+    color: #5A7184;
+}
+
+.search-bar__input:focus {
+    border-color: #1A8FE3;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(26, 143, 227, .12);
+}
+
+.search-bar__btn {
+    background: linear-gradient(135deg, #1A8FE3, #1270B8);
+    border: none;
+    border-radius: 100px;
+    padding: 12px 24px;
+    color: white;
+    font-weight: 700;
+    font-size: .88rem;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+    white-space: nowrap;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.search-bar__btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(26, 143, 227, .35);
+}
+
+.search-result {
+    margin-top: 12px;
+    font-size: .85rem;
+    color: #5A7184;
+    line-height: 1.6;
+    min-height: 20px;
+}

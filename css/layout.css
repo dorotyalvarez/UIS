@@ -1,0 +1,54 @@
+/* ============================================================
+   layout.css — Estructura de página: main, secciones, footer
+   ============================================================ */
+
+/* ── Main ── */
+
+main {
+  padding: var(--space-2xl) var(--padding-x);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* ── Encabezado de sección ── */
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.section-desc {
+  color: var(--color-mid);
+  font-size: var(--text-base);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ── Footer ── */
+
+.footer {
+  text-align: center;
+  padding: 48px var(--padding-x);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-mid);
+  font-size: var(--text-sm);
+  margin-top: var(--space-2xl);
+}
+
+.footer__disclaimer {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  font-size: 0.82rem;
+  color: #92400e;
+  max-width: 700px;
+  margin: 0 auto var(--space-md);
+  line-height: 1.6;
+}
+
+.footer__copy {
+  margin-top: 8px;
+  opacity: 0.5;
+}

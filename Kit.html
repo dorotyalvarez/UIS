@@ -1,0 +1,838 @@
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Kit básico de emergencias — PrimAux" />
+    <title>PrimAux — Kit Básico de Emergencias</title>
+
+    <!-- 🔴 FAVICON -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png?v=1">
+    <link rel="shortcut icon" href="images/favicon.png?v=1">
+    <link rel="apple-touch-icon" href="images/favicon.png?v=1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/hero.css" />
+    <link rel="stylesheet" href="css/cards.css" />
+    <link rel="stylesheet" href="css/kit.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/burn.css" />
+
+    <style>
+        /* ══════════════════════════════
+       HERO DE LA PÁGINA
+    ══════════════════════════════ */
+        
+        .kit-page-hero {
+            background: linear-gradient(135deg, #1A8FE3 0%, #1270B8 100%);
+            color: white;
+            padding: 64px 6% 72px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .kit-page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 70% at 80% 50%, rgba(45, 189, 143, .2) 0%, transparent 60%);
+        }
+        
+        .kit-page-hero::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255, 184, 48, .12);
+            bottom: -80px;
+            left: -60px;
+            animation: bubbleFloat 8s ease-in-out infinite;
+        }
+        
+        @keyframes bubbleFloat {
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-16px) scale(1.04);
+            }
+        }
+        
+        .kit-page-hero__tag {
+            display: inline-block;
+            background: #2DBD8F;
+            color: white;
+            font-size: .75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            padding: 6px 18px;
+            border-radius: 100px;
+            margin-bottom: 18px;
+            position: relative;
+        }
+        
+        .kit-page-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            position: relative;
+        }
+        
+        .kit-page-hero p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, .82);
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.7;
+            position: relative;
+        }
+        /* ══════════════════════════════
+       BARRA EMERGENCIA
+    ══════════════════════════════ */
+        
+        .emergency-bar {
+            background: linear-gradient(90deg, #C0392B 0%, #E8503A 100%);
+            color: white;
+            text-align: center;
+            padding: 13px 6%;
+            font-size: .88rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .emergency-bar a {
+            color: #FFB830;
+            font-weight: 800;
+        }
+        
+        .emergency-pulse {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: white;
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, .6);
+            animation: epulse 1.8s ease-out infinite;
+        }
+        
+        @keyframes epulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, .6);
+            }
+            70% {
+                box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            }
+        }
+        /* ══════════════════════════════
+       CONTENIDO
+    ══════════════════════════════ */
+        
+        .kit-page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 5% 80px;
+        }
+        
+        .kit-section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1B2A3B;
+            margin-bottom: 8px;
+        }
+        
+        .kit-section-sub {
+            color: #5A7184;
+            font-size: .95rem;
+            margin-bottom: 28px;
+        }
+        /* ══════════════════════════════
+       CARRUSEL — ESENCIALES
+    ══════════════════════════════ */
+        
+        .carousel-wrap {
+            position: relative;
+            margin-bottom: 64px;
+        }
+        
+        .carousel {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            padding-bottom: 8px;
+            cursor: grab;
+        }
+        
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .carousel.grabbing {
+            cursor: grabbing;
+        }
+        
+        .carousel-item {
+            min-width: 260px;
+            background: linear-gradient(135deg, #1A8FE3 0%, #1270B8 100%);
+            border-radius: 20px;
+            padding: 28px 24px;
+            scroll-snap-align: start;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+            transition: transform .3s;
+            cursor: pointer;
+        }
+        
+        .carousel-item:hover {
+            transform: translateY(-4px);
+        }
+        
+        .carousel-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at top right, rgba(255, 255, 255, .15) 0%, transparent 60%);
+        }
+        
+        .carousel-item__icon {
+            font-size: 2.4rem;
+            margin-bottom: 14px;
+        }
+        
+        .carousel-item__name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .carousel-item__desc {
+            font-size: .82rem;
+            color: rgba(255, 255, 255, .8);
+            line-height: 1.5;
+        }
+        
+        .carousel-item__badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(255, 255, 255, .2);
+            border: 1px solid rgba(255, 255, 255, .3);
+            border-radius: 100px;
+            padding: 3px 10px;
+            font-size: .7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+        /* Colores variados por item */
+        
+        .carousel-item:nth-child(2) {
+            background: linear-gradient(135deg, #2DBD8F, #1F9970);
+        }
+        
+        .carousel-item:nth-child(3) {
+            background: linear-gradient(135deg, #E8503A, #C0392B);
+        }
+        
+        .carousel-item:nth-child(4) {
+            background: linear-gradient(135deg, #7C5CBF, #5e42a6);
+        }
+        
+        .carousel-item:nth-child(5) {
+            background: linear-gradient(135deg, #F4A235, #e08c1a);
+        }
+        
+        .carousel-item:nth-child(6) {
+            background: linear-gradient(135deg, #1A8FE3, #2DBD8F);
+        }
+        
+        .carousel-nav {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .carousel-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid #D0E8F7;
+            background: white;
+            color: #1A8FE3;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .2s;
+        }
+        
+        .carousel-btn:hover {
+            background: #1A8FE3;
+            color: white;
+            border-color: #1A8FE3;
+        }
+        /* ══════════════════════════════
+       GRID DE CARDS EXPANDIBLES
+    ══════════════════════════════ */
+        
+        .kit-grid-section {
+            margin-bottom: 64px;
+        }
+        
+        .kit-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 18px;
+            align-items: start;
+            /* ← solo agrega esta línea */
+        }
+        
+        .kit-card {
+            background: white;
+            border-radius: 18px;
+            border: 1.5px solid #D0E8F7;
+            box-shadow: 0 4px 16px rgba(26, 143, 227, .08);
+            overflow: hidden;
+            transition: transform .3s, box-shadow .3s;
+            cursor: pointer;
+        }
+        
+        .kit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(26, 143, 227, .15);
+        }
+        
+        .kit-card.open {
+            border-color: #1A8FE3;
+        }
+        
+        .kit-card__header {
+            padding: 20px 22px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        
+        .kit-card__icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .kit-card__name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #1B2A3B;
+            flex: 1;
+        }
+        
+        .kit-card__arrow {
+            color: #5A7184;
+            font-size: .9rem;
+            transition: transform .3s;
+            flex-shrink: 0;
+        }
+        
+        .kit-card.open .kit-card__arrow {
+            transform: rotate(180deg);
+        }
+        
+        .kit-card__body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .4s ease, padding .3s ease;
+            padding: 0 22px;
+            border-top: 0px solid #D0E8F7;
+        }
+        
+        .kit-card.open .kit-card__body {
+            max-height: 400px;
+            padding: 0 22px 20px;
+            border-top: 1.5px solid #D0E8F7;
+        }
+        
+        .kit-card__desc {
+            font-size: .88rem;
+            color: #5A7184;
+            line-height: 1.65;
+            margin-top: 14px;
+            margin-bottom: 12px;
+        }
+        
+        .kit-card__uses {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            margin-bottom: 12px;
+        }
+        
+        .kit-card__uses li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: .85rem;
+            color: #1B2A3B;
+            padding: 8px 12px;
+            background: #E8F4FD;
+            border-radius: 8px;
+        }
+        
+        .kit-card__tip {
+            background: #fffbeb;
+            border: 1.5px solid #fde68a;
+            border-radius: 10px;
+            padding: 10px 14px;
+            font-size: .82rem;
+            color: #92400e;
+            line-height: 1.5;
+        }
+        /* ══════════════════════════════
+       ALERTA FINAL
+    ══════════════════════════════ */
+        
+        .burn-alert {
+            background: linear-gradient(135deg, #1B2A3B, #1e3a4a);
+            color: white;
+            border-radius: 18px;
+            padding: 24px 32px;
+            font-size: .95rem;
+            font-weight: 500;
+            line-height: 1.7;
+            text-align: center;
+            margin-top: 20px;
+        }
+        /* ══════════════════════════════
+       FOOTER
+    ══════════════════════════════ */
+        
+        .footer {
+            text-align: center;
+            padding: 40px 6%;
+            border-top: 1px solid #D0E8F7;
+            color: #5A7184;
+            font-size: .85rem;
+        }
+        
+        .footer a {
+            color: #1A8FE3;
+            font-weight: 600;
+        }
+        /* ══════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════ */
+        
+        @media (max-width: 640px) {
+            .kit-cards-grid {
+                grid-template-columns: 1fr;
+            }
+            .carousel-item {
+                min-width: 220px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header"></div>
+    <main>
+
+        <!-- HERO -->
+        <div class="kit-page-hero">
+            <div class="kit-page-hero__tag">🎒 Preparación</div>
+            <h1>Kit Básico de Emergencias</h1>
+            <p>Tener estos elementos en casa puede marcar la diferencia entre una emergencia manejable y una catástrofe. Revísalos cada 6 meses.</p>
+        </div>
+
+        <!-- EMERGENCIA -->
+        <div class="emergency-bar">
+            <div class="emergency-pulse"></div>
+            <span>Ante cualquier emergencia grave llama al <a href="tel:123">123</a> antes de actuar.</span>
+            <div class="emergency-pulse"></div>
+        </div>
+
+        <div class="kit-page">
+
+            <!-- ══════════════════════════════
+             CARRUSEL — LOS MÁS IMPORTANTES
+        ══════════════════════════════ -->
+            <div class="carousel-wrap">
+                <h2 class="kit-section-title">⭐ Los más importantes</h2>
+                <p class="kit-section-sub">Estos elementos son indispensables — sin ellos tu kit no está completo.</p>
+
+                <div class="carousel" id="carousel">
+
+                    <div class="carousel-item">
+                        <div class="carousel-item__badge">Esencial</div>
+                        <div class="carousel-item__icon">🩹</div>
+                        <div class="carousel-item__name">Gasas y vendas estériles</div>
+                        <div class="carousel-item__desc">Para cubrir heridas, controlar hemorragias y proteger quemaduras.</div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="carousel-item__badge">Esencial</div>
+                        <div class="carousel-item__icon">🧤</div>
+                        <div class="carousel-item__name">Guantes de látex</div>
+                        <div class="carousel-item__desc">Protección para quien ayuda. Siempre ten mínimo 4 pares.</div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="carousel-item__badge">Urgente</div>
+                        <div class="carousel-item__icon">🧴</div>
+                        <div class="carousel-item__name">Antiséptico (povidona)</div>
+                        <div class="carousel-item__desc">Limpia heridas y previene infecciones. Úsalo siempre antes de cubrir.</div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="carousel-item__badge">Esencial</div>
+                        <div class="carousel-item__icon">😷</div>
+                        <div class="carousel-item__name">Máscara de ventilación</div>
+                        <div class="carousel-item__desc">Para RCP boca a boca sin contacto directo. Puede salvar una vida.</div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="carousel-item__badge">Crítico</div>
+                        <div class="carousel-item__icon">💊</div>
+                        <div class="carousel-item__name">Analgésico básico</div>
+                        <div class="carousel-item__desc">Ibuprofeno o acetaminofén para manejo del dolor mientras llega ayuda.</div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="carousel-item__badge">Esencial</div>
+                        <div class="carousel-item__icon">📋</div>
+                        <div class="carousel-item__name">Lista de emergencias</div>
+                        <div class="carousel-item__desc">Teléfonos de hospitales, médico de familia, alergias y medicamentos.</div>
+                    </div>
+
+                </div>
+
+                <div class="carousel-nav">
+                    <button class="carousel-btn" id="prevBtn">←</button>
+                    <button class="carousel-btn" id="nextBtn">→</button>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════
+             CARDS EXPANDIBLES — TODO EL KIT
+        ══════════════════════════════ -->
+            <div class="kit-grid-section">
+                <h2 class="kit-section-title">🎒 Kit completo</h2>
+                <p class="kit-section-sub">Haz clic en cada elemento para ver para qué sirve y cómo usarlo.</p>
+
+                <div class="kit-cards-grid">
+
+                    <div class="kit-card" onclick="toggleCard(this)">
+                        <div class="kit-card__header">
+                            <div class="kit-card__icon" style="background:#E8F4FD;">🩹</div>
+                            <div class="kit-card__name">Gasas y vendas estériles</div>
+                            <span class="kit-card__arrow">▼</span>
+                        </div>
+                        <div class="kit-card__body">
+                            <p class="kit-card__desc">Las gasas cubren heridas abiertas y absorben sangre. Las vendas fijan las gasas en su lugar.</p>
+                            <ul class="kit-card__uses">
+                                <li>🩸 Cubrir y comprimir heridas con sangrado</li>
+                                <li>🔥 Proteger quemaduras de primer y segundo grado</li>
+                                <li>🦴 Estabilizar fracturas junto a una férula</li>
+                            </ul>
+                            <div class="kit-card__tip">💡 Tener mínimo 10 gasas de diferentes tamaños y 3 vendas elásticas.</div>
+                        </div>
+                    </div>
+
+                    <div class="kit-card" onclick="toggleCard(this)">
+                        <div class="kit-card__header">
+                            <div class="kit-card__icon" style="background:#E6F9F3;">✂️</div>
+                            <div class="kit-card__name">Tijeras de punta roma</div>
+                            <span class="kit-card__arrow">▼</span>
+                        </div>
+                        <div class="kit-card__body">
+                            <p class="kit-card__desc">Las tijeras de punta roma son seguras para cortar ropa sin lastimar la piel del herido.</p>
+                            <ul class="kit-card__uses">
+                                <li>👕 Cortar ropa para acceder a una herida rápido</li>
+                                <li>🩹 Recortar gasas y vendas al tamaño necesario</li>
+                                <li>🔗 Cortar cinturones o cordones apretados</li>
+                            </ul>
+                            <div class="kit-card__tip">💡 Nunca uses tijeras de punta fina cerca de la piel en una emergencia.</div>
+                        </div>
+                    </div>
+
+                    <div class="kit-card" onclick="toggleCard(this)">
+                        <div class="kit-card__header">
+                            <div class="kit-card__icon" style="background:#FEF0EE;">🧤</div>
+                            <div class="kit-card__name">Guantes de látex (x4)</div>
+                            <span class="kit-card__arrow">▼</span>
+                        </div>
+                        <div class="kit-card__body">
+                            <p class="kit-card__desc">Protegen tanto al herido como a quien ayuda de infecciones y contaminación cruzada.</p>
+                            <ul class="kit-card__uses">
+                                <li>🩸 Siempre antes de tocar sangre o heridas</li>
+                                <li>🧴 Al aplicar antiséptico o medicamentos</li>
+                                <li>😷 Al realizar RCP o maniobras invasivas</li>
+                            </ul>
+                            <div class="kit-card__tip">💡 Si eres alérgico al látex, usa guantes de nitrilo como alternativa.</div>
+                        </div>
+                    </div>
+
+                    <div class="kit-card" onclick="toggleCard(this)">
+                        <div class="kit-card__header">
+                            <div class="kit-card__icon" style="background:#E8F4FD;">🌡️</div>
+                            <div class="kit-card__name">Termómetro digital</div>
+                            <span class="kit-card__arrow">▼</span>
+                        </div>
+                        <div class="kit-card__body">
+                            <p class="kit-card__desc">Mide la temperatura corporal para detectar fiebre, hipotermia o golpe de calor.</p>
+                            <ul class="kit-card__uses">
+                                <li>🤒 Detectar fiebre alta (mayor a 38.5°C)</li>
+                                <li>🥶 Confirmar hipotermia (menor a 35°C)</li>
+                                <li>☀️ Monitorear golpe de calor</li>
+                            </ul>
+                            <div class="kit-card__tip">💡 Temperatura normal: 36°C a 37.5°C. Más de 39°C es emergencia en niños.</div>
+                        </div>
+                    </div>
+
+                    <div class="kit-card" onclick="toggleCard(this)">
+                        <div class="kit-card__header">
+                            <div class="kit-card__icon" style="background:#FEF3E2;">💊</div>
+                            <div class="kit-card__name">Analgésico básico</div>
+                            <span class="kit-card__arrow">▼</span>
+                        </div>
+                        <div class="kit-card__body">
+                            <p class="kit-card__desc">Para manejo del dolor leve a moderado mientras llega ayuda médica profesional.</p>
+                            <ul class="kit-card__uses">
+                                <li>🤕 Dolor por golpes, fracturas o quemaduras leves</li>
+                                <li>🤒 Bajar fiebre en adultos</li>
+                                <li>🦷 Dolor dental de emergencia</li>
+                            </ul>
+                            <div class="kit-card__tip">💡 Incluye acetaminofén (para todos) e ibuprofeno (no dar a menores de 6 meses).</div>
+                        </div>
+                    </div>
+
+                    <div class="kit-card" onclick="toggleCard(this)">
+                        <div class="kit-card__header">
+                            <div class="kit-card__icon" style="background:#E6F9F3;">🧴</div>
+                            <div class="kit-card__name">Antiséptico (povidona)</div>
+                            <span class="kit-card__arrow">▼</span>
+                        </div>
+                        <div class="kit-card__body">
+                            <p class="kit-card__desc">Desinfecta heridas y previene infecciones. Es uno de los elementos más importantes del kit.</p>
+                            <ul class="kit-card__uses">
+                                <li>🩹 Limpiar heridas antes de cubrir</li>
+                                <li>🔥 Desinfectar quemaduras leves</li>
+                                <li>🐝 Tratar picaduras e irritaciones</li>
+                            </ul>
+                            <div class="kit-card__tip">💡 Nunca uses alcohol en heridas abiertas — irrita los tejidos. La povidona es más suave.</div>
+                        </div>
+                    </div>
+
+                    <div class="kit-card" onclick="toggleCard(this)">
+                        <div class="kit-card__header">
+                            <div class="kit-card__icon" style="background:#E8F4FD;">📏</div>
+                            <div class="kit-card__name">Tablillas (férulas)</div>
+                            <span class="kit-card__arrow">▼</span>
+                        </div>
+                        <div class="kit-card__body">
+                            <p class="kit-card__desc">Inmovilizan huesos fracturados o articulaciones lesionadas para evitar más daño.</p>
+                            <ul class="kit-card__uses">
+                                <li>🦴 Estabilizar fracturas de brazo o pierna</li>
+                                <li>🤕 Inmovilizar esguinces graves</li>
+                                <li>🖐️ Proteger dedos fracturados</li>
+                            </ul>
+                            <div class="kit-card__tip">💡 Si no tienes férula, usa revistas enrolladas, palos o cartón firme como alternativa.</div>
+                        </div>
+                    </div>
+
+                    <div class="kit-card" onclick="toggleCard(this)">
+                        <div class="kit-card__header">
+                            <div class="kit-card__icon" style="background:#FEF3E2;">🔦</div>
+                            <div class="kit-card__name">Linterna con pilas extra</div>
+                            <span class="kit-card__arrow">▼</span>
+                        </div>
+                        <div class="kit-card__body">
+                            <p class="kit-card__desc">Indispensable en cortes de luz, espacios oscuros o emergencias nocturnas.</p>
+                            <ul class="kit-card__uses">
+                                <li>🌑 Atender heridos en la oscuridad</li>
+                                <li>👁️ Revisar pupilas para evaluar consciencia</li>
+                                <li>🆘 Hacer señales de auxilio</li>
+                            </ul>
+                            <div class="kit-card__tip">💡 Revisa las pilas cada 6 meses. Una linterna con pilas muertas no sirve de nada.</div>
+                        </div>
+                    </div>
+
+                    <div class="kit-card" onclick="toggleCard(this)">
+                        <div class="kit-card__header">
+                            <div class="kit-card__icon" style="background:#E6F9F3;">📋</div>
+                            <div class="kit-card__name">Lista de teléfonos</div>
+                            <span class="kit-card__arrow">▼</span>
+                        </div>
+                        <div class="kit-card__body">
+                            <p class="kit-card__desc">En una emergencia el estrés bloquea la memoria. Tener los números a la mano salva tiempo.</p>
+                            <ul class="kit-card__uses">
+                                <li>📞 123 — Emergencias Colombia</li>
+                                <li>🏥 Hospital o clínica más cercana</li>
+                                <li>👨‍⚕️ Médico de cabecera de la familia</li>
+                                <li>💊 Alergias y medicamentos de cada integrante</li>
+                            </ul>
+                            <div class="kit-card__tip">💡 Imprime la lista y pégala en el botiquín. No dependas solo del celular.</div>
+                        </div>
+                    </div>
+
+                    <div class="kit-card" onclick="toggleCard(this)">
+                        <div class="kit-card__header">
+                            <div class="kit-card__icon" style="background:#E8F4FD;">💉</div>
+                            <div class="kit-card__name">Suero oral de rehidratación</div>
+                            <span class="kit-card__arrow">▼</span>
+                        </div>
+                        <div class="kit-card__body">
+                            <p class="kit-card__desc">Repone líquidos y electrolitos perdidos por diarrea, vómito, sudoración excesiva o desmayos.</p>
+                            <ul class="kit-card__uses">
+                                <li>🤢 Diarrea o vómito prolongado</li>
+                                <li>😵 Desmayos por deshidratación</li>
+                                <li>☀️ Golpe de calor o sudoración intensa</li>
+                            </ul>
+                            <div class="kit-card__tip">💡 No sustituyas con bebidas azucaradas. El suero tiene la concentración exacta de sales.</div>
+                        </div>
+                    </div>
+
+                    <div class="kit-card" onclick="toggleCard(this)">
+                        <div class="kit-card__header">
+                            <div class="kit-card__icon" style="background:#FEF0EE;">😷</div>
+                            <div class="kit-card__name">Máscara de ventilación</div>
+                            <span class="kit-card__arrow">▼</span>
+                        </div>
+                        <div class="kit-card__body">
+                            <p class="kit-card__desc">Permite realizar RCP boca a boca sin contacto directo, protegiendo a quien ayuda.</p>
+                            <ul class="kit-card__uses">
+                                <li>❤️ RCP con respiraciones de rescate</li>
+                                <li>😮‍💨 Ventilación en personas inconscientes</li>
+                                <li>🫁 Apoyo respiratorio de emergencia</li>
+                            </ul>
+                            <div class="kit-card__tip">💡 Aprende a usarla antes de necesitarla — toma menos de 5 minutos aprenderlo.</div>
+                        </div>
+                    </div>
+
+                    <div class="kit-card" onclick="toggleCard(this)">
+                        <div class="kit-card__header">
+                            <div class="kit-card__icon" style="background:#E6F9F3;">🧊</div>
+                            <div class="kit-card__name">Bolsas de frío instantáneo</div>
+                            <span class="kit-card__arrow">▼</span>
+                        </div>
+                        <div class="kit-card__body">
+                            <p class="kit-card__desc">Se activan al presionar y generan frío sin necesidad de refrigerador. Ideales para lesiones.</p>
+                            <ul class="kit-card__uses">
+                                <li>🦴 Reducir inflamación en esguinces y fracturas</li>
+                                <li>🐝 Aliviar picaduras e irritaciones</li>
+                                <li>☀️ Bajar temperatura en golpe de calor</li>
+                            </ul>
+                            <div class="kit-card__tip">💡 Nunca apliques frío directamente sobre la piel — envuélvelo en una tela.</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ALERTA FINAL -->
+            <div class="burn-alert">
+                🚨 Revisa tu kit cada 6 meses — verifica fechas de vencimiento y repón lo que hayas usado. Un botiquín desactualizado puede fallar cuando más lo necesitas.
+            </div>
+    </main>
+
+    </div>
+
+
+    <div id="footer"></div>
+    <script src="./js/loadComponents.js"></script>
+
+    <script>
+        // ══════════════════════════════
+        // Cards expandibles
+        // ══════════════════════════════
+        function toggleCard(card) {
+            const isOpen = card.classList.contains('open');
+            // Cierra todas
+            document.querySelectorAll('.kit-card').forEach(c => c.classList.remove('open'));
+            // Abre la clickeada si estaba cerrada
+            if (!isOpen) card.classList.add('open');
+        }
+
+        // ══════════════════════════════
+        // Carrusel con drag
+        // ══════════════════════════════
+        const carousel = document.getElementById('carousel');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        nextBtn.addEventListener('click', () => {
+            carousel.scrollBy({
+                left: 280,
+                behavior: 'smooth'
+            });
+        });
+        prevBtn.addEventListener('click', () => {
+            carousel.scrollBy({
+                left: -280,
+                behavior: 'smooth'
+            });
+        });
+
+        // Drag to scroll
+        let isDown = false,
+            startX, scrollLeft;
+
+        carousel.addEventListener('mousedown', e => {
+            isDown = true;
+            carousel.classList.add('grabbing');
+            startX = e.pageX - carousel.offsetLeft;
+            scrollLeft = carousel.scrollLeft;
+        });
+        carousel.addEventListener('mouseleave', () => {
+            isDown = false;
+            carousel.classList.remove('grabbing');
+        });
+        carousel.addEventListener('mouseup', () => {
+            isDown = false;
+            carousel.classList.remove('grabbing');
+        });
+        carousel.addEventListener('mousemove', e => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - carousel.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            carousel.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+
+</body>
+
+</html>
