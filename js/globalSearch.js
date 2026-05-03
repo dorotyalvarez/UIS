@@ -1,14 +1,14 @@
 // js/globalSearch.js
 const PAGES = [
-    { icon: '❤️', name: 'RCP y paro cardíaco', desc: 'Reanimación Cardiopulmonar', url: '/rcp.html', keywords: ['rcp', 'corazon', 'paro', 'compresiones'] },
-    { icon: '🩸', name: 'Heridas y hemorragias', desc: 'Control de sangrado', url: '/heridas.html', keywords: ['herida', 'sangre', 'hemorragia', 'corte'] },
-    { icon: '🔥', name: 'Quemaduras', desc: 'Primeros pasos ante el calor', url: '/quemaduras.html', keywords: ['quemadura', 'fuego', 'calor', 'ampolla'] },
-    { icon: '🦴', name: 'Fracturas y esguinces', desc: 'Inmovilización y soporte', url: '/fracturas.html', keywords: ['fractura', 'hueso', 'esguince', 'torcedura'] },
-    { icon: '🫁', name: 'Atragantamiento', desc: 'Maniobra de Heimlich', url: '/atragantamiento.html', keywords: ['atragant', 'heimlich', 'asfixia', 'atorar'] },
-    { icon: '😵', name: 'Desmayos y convulsiones', desc: 'Pérdida de consciencia', url: '/desmayos.html', keywords: ['desmayo', 'convulsion', 'inconsciente'] },
-    { icon: '🐝', name: 'Picaduras y mordeduras', desc: 'Reacciones e infecciones', url: '/picaduras.html', keywords: ['picadura', 'mordedura', 'alergia', 'insecto'] },
-    { icon: '🎒', name: 'Kit básico de emergencias', desc: 'Elementos esenciales', url: '/kit.html', keywords: ['kit', 'botuquin', 'elementos', 'guantes'] },
-    { icon: '📖', name: 'Guía completa', desc: 'Valoración primaria y AVDI', url: '/guia.html', keywords: ['guia', 'avdi', 'valoracion', 'primaria'] },
+    { icon: '❤️', name: 'RCP y paro cardíaco', desc: 'Reanimación Cardiopulmonar', url: 'rcp.html', keywords: ['rcp', 'corazon', 'paro', 'compresiones'] },
+    { icon: '🩸', name: 'Heridas y hemorragias', desc: 'Control de sangrado', url: 'heridas.html', keywords: ['herida', 'sangre', 'hemorragia', 'corte'] },
+    { icon: '🔥', name: 'Quemaduras', desc: 'Primeros pasos ante el calor', url: 'quemaduras.html', keywords: ['quemadura', 'fuego', 'calor', 'ampolla'] },
+    { icon: '🦴', name: 'Fracturas y esguinces', desc: 'Inmovilización y soporte', url: 'fracturas.html', keywords: ['fractura', 'hueso', 'esguince', 'torcedura'] },
+    { icon: '🫁', name: 'Atragantamiento', desc: 'Maniobra de Heimlich', url: 'atragantamiento.html', keywords: ['atragant', 'heimlich', 'asfixia', 'atorar'] },
+    { icon: '😵', name: 'Desmayos y convulsiones', desc: 'Pérdida de consciencia', url: 'desmayos.html', keywords: ['desmayo', 'convulsion', 'inconsciente'] },
+    { icon: '🐝', name: 'Picaduras y mordeduras', desc: 'Reacciones e infecciones', url: 'picaduras.html', keywords: ['picadura', 'mordedura', 'alergia', 'insecto'] },
+    { icon: '🎒', name: 'Kit básico de emergencias', desc: 'Elementos esenciales', url: 'kit.html', keywords: ['kit', 'botuquin', 'elementos', 'guantes'] },
+    { icon: '📖', name: 'Guía completa', desc: 'Valoración primaria y AVDI', url: 'guia.html', keywords: ['guia', 'avdi', 'valoracion', 'primaria'] },
 ];
 
 function normalize(str) {
